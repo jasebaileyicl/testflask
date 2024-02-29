@@ -53,6 +53,22 @@ def test_db():
     return 'testing... check console.'
 
 
+@app.route('/test-pyodbc')
+def test_pyodbc_db():
+    server = os.environ.get('SERVER')
+    database = os.environ.get('DB')
+    username = os.environ.get('USERNAME')
+    password = os.environ.get('PASSWORD')
+    driver = '{ODBC Driver 17 for SQL Server}'
+
+    conn_string = f"""Driver={driver};Server=tcp:{server},1433;Database={database};
+        Uid={username};Pwd={password};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;"""
+    conn = pyodbc.connect(conn_string)
+    print(conn, file=sys.stderr)
+
+    return "test pyodbc"
+
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
