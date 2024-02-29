@@ -27,8 +27,12 @@ This confirms the environment variables are working
 ```
 http://localhost:5000/test
 ```
-### Error
+### Error (not an issue)
+This error has gone away. I need to allow my IP address to access the database, something like this:
 
+![img.png](img.png)
+
+Error gone:
 I receive the following error which appears to indicate the code is working but the connection is blocked for me.
 
 ```

@@ -52,7 +52,7 @@ def test_db():
 
     return 'testing... check console.'
 
-
+# not needed. Was using this to test ODBC connection
 @app.route('/test-pyodbc')
 def test_pyodbc_db():
     server = os.environ.get('SERVER')
